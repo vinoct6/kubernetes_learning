@@ -29,3 +29,18 @@ spec:
       port: 61616
 
   type: NodePort
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetman-position-tracker
+spec:
+  selector:
+    app: position-tracker
+  ports:
+    - name: http
+      port: 8080
+  type: ClusterIP
