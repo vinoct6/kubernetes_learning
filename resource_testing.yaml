@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: queue
 spec:
-  replicas: 6
+  replicas: 1
   selector:
     matchLabels:
       app: queue
@@ -17,4 +17,5 @@ spec:
           image: richardchesterwood/k8s-fleetman-queue:release2
           resources:
             requests:
-              memory: 999Mi # 1Mi = 1024Ki   1Ki=1024bytes
+              memory: 100Mi # 1Mi = 1024Ki   1Ki=1024bytes
+              cpu: 100m
