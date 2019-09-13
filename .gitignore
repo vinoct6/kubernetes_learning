@@ -2,3 +2,4 @@
 *.pem
 credentials.csv
 accesskey.txt
+kubeconfig.txt

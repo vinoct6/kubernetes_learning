@@ -19,3 +19,15 @@ spec:
             requests:
               memory: 100Mi # 1Mi = 1024Ki   1Ki=1024bytes
               cpu: 100m
+            limits:
+              memory: 500Mi
+              cpu: 200m
+
+#Memory Limits - safety nets
+
+#If the actual memory usage at run time of the container at runtime exceeds the limit, the container will be killed.
+#The pod itself will remain; the container will therefore attempt to start.
+
+#If the actual usage of CPU at runtime exeeds the limit, the CPU will be "clamped". The container will continue to run.
+# This is throttling.
+
