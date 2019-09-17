@@ -22,3 +22,31 @@ subjects: #List all the users who go into the role
     name: francis-linux-login-name
 
 #A Role is associated with a specific namespace, whereas a ClusterRole is associated with the entire cluster.
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: new-joiner-role
+  namespace: playground
+rules:
+  - apiGroups: ["","apps"] #Core API and Apps
+    resources: ["*"]
+    verbs: ["*"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: new-joiner-user-role-binding
+  namespace: default
+roleRef:
+  kind: Role
+  name: new-joiner-role
+  apiGroup: rbac.authorization.k8s.io
+subjects: #List all the users who go into the role
+  - kind: User
+    name: francis-linux-login-name
+
