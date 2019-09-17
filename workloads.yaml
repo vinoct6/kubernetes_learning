@@ -18,6 +18,7 @@ spec:
           resources:
             requests:
               memory: 300Mi # 1Mi = 1024Ki   1Ki=1024bytes
+              cpu: 100m
 
 ---
 
