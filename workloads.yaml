@@ -65,6 +65,10 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
+          envFrom:
+            - configMapRef:
+                name: global-database-config
+
 
 ---
 
