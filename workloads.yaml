@@ -42,6 +42,14 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: production-microservice
+          volumeMounts: #Configuration available as file in the container file system
+            - mountPath: /etc/any/config
+              name: database-config-name
+      volumes:
+        - name: database-config-name
+          configMap:
+            name: global-database-config-v1
+
 
 ---
 
