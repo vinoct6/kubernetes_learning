@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: new-joiner
+rules:
+  - apiGroups: ["","apps"] #Core API and Apps
+    resources: ["*"]
+    verbs: ["get","list"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: new-joiner-user
+roleRef:
+  kind: ClusterRole
+  name: new-joiner
+  apiGroup: rbac.authorization.k8s.io
+subjects: #List all the users who go into the role
+  - kind: User
+    name: francis-linux-login-name
+
+#A Role is associated with a specific namespace, whereas a ClusterRole is associated with the entire cluster.
